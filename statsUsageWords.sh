@@ -22,24 +22,16 @@ do
 			
 				#echo "$contador - $palabra"			
 			done
-			echo "$contador - $palabra" >> statsUsageWords.txt
+			echo "$contador apariciones: $palabra" >> statsUsageWords.txt
 		fi
 	else
 		contador=0
 	fi
 done
 
-cat statsUsageWords.txt | sort | uniq
-echo "otrooooooooooooooooooooooooooooo\n"
 
-for i in $(seq 1 10)
-do
-	for palabra in $(cat statsUsageWords.txt | sort | uniq | grep ^"$i")
-	do
-		palabras+="${palabra} "
-	done
+echo "Top Ten de palabras con mas apariciones: "
 
-	echo $palabras
-done
+cat statsUsageWords.txt | sort | uniq | sort -r | head --lines=10
 
 rm statsUsageWords.txt
