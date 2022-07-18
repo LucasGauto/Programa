@@ -2,7 +2,6 @@
 
 TEXTO=$1
 TIPO=$2
-POSICIOIN=$3
 
 #compruebo si el archivo existe
 if [ -e $TEXTO ]
@@ -17,10 +16,21 @@ then
 		IFS=$'.'
 		
 		echo "Usted esta buscando una oracion"
+		
+		POSICION=$3
+		n=$((1))
 
 		for oracion in $CAT
 		do
-			echo $oracion
+			#echo $oracion
+			if [ $n -eq $POSICION ]
+			then
+				echo "Oracion $POSICION: $oracion"
+				n=$((n+1))
+			else
+				n=$((n+1))
+			fi
+
 		done
 
 		IFS=$newIFS
@@ -35,9 +45,18 @@ then
 		
 		echo "Usted esta buscando un parrafo"
 		
+		POSICION=$3
+		n=$((1))
+			
 		for parrafo in $CAT
 		do
-			echo $parrafo
+			if [ $n -eq $POSICION ]
+			then
+				echo "Parrafo #$POSICION: $parrafo"
+				n=$((n+1))
+			else
+				n=$((n+1))
+			fi
 		done
 		
 		IFS=$newIFS
