@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source funcionPrueba.sh
+
+TEXTO=$1
+
 OP2='Indicador estadistico de longitud de palabras'
 OP3="Indicador estadistico de uso de palabras. 10 mas usadas"
 OP4="Identificacion de nombres propios"
@@ -29,6 +33,7 @@ do
 		case $REPLY in
 			2)
 				echo "statsWORDS"
+				funcion $TEXTO
 				continue
 				exit 0
 				;;
