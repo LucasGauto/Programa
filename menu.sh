@@ -4,6 +4,7 @@ source funcionPrueba.sh
 source statsWords.sh
 source statsUsageWords.sh
 source findNames.sh
+source statsSentences.sh
 source blankLinesCounter.sh
 
 TEXTO=$1
@@ -59,6 +60,7 @@ do
 				;;
 			5)
 				echo "statsSentences"
+				statsSentences $TEXTO
 				continue
 				exit 0
 				;;

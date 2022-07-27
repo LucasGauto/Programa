@@ -1,76 +1,80 @@
 #!/bin/bash
 
-TEXTO=$1
+function statsSentences {
 
-CAT=$(cat $TEXTO)
+	TEXTO=$1
 
-COUNT_SENTENCES=$((0))
-SUMA_LONGITUDES=$((0))
+	CAT=$(cat $TEXTO)
 
-newIFS=$IFS
-IFS=$'.\n'
+	COUNT_SENTENCES=$((0))
+	SUMA_LONGITUDES=$((0))
 
-for i in $CAT
-do
-	COUNT_SENTENCES=$((COUNT_SENTENCES+1))
-	LONGITUD=${#i}
-	SUMA_LONGITUDES=$((SUMA_LONGITUDES+LONGITUD))
+	newIFS=$IFS
+	IFS=$'.\n'
 
-	echo -e "$LONGITUD - '$i'\n" >> ordenar.txt
+	for i in $CAT
+	do
+		COUNT_SENTENCES=$((COUNT_SENTENCES+1))
+		LONGITUD=${#i}
+		SUMA_LONGITUDES=$((SUMA_LONGITUDES+LONGITUD))
 
-done
+		echo -e "$LONGITUD - '$i'\n" >> ordenar.txt
+
+	done
 
 
-IFS=$newIFS
-unset newIFS
+	IFS=$newIFS
+	unset newIFS
 
-#--------- TOTAL DE LINEAS -----------
+	#--------- TOTAL DE LINEAS -----------
 
-LINEAS=$((0))
+	LINEAS=$((0))
 
-newIFS=$IFS
-IFS=$'\n'
+	newIFS=$IFS
+	IFS=$'\n'
 
-for i in $(cat ordenar.txt)
-do
-	LINEAS=$((LINEAS+1))
-done
+	for i in $(cat ordenar.txt)
+	do
+		LINEAS=$((LINEAS+1))
+	done
 
-IFS=$newIFS
-unset newIFS
+	IFS=$newIFS
+	unset newIFS
 
-#------------ ORDENAR ----------------
+	#------------ ORDENAR ----------------
 
-ORDENADA=$(cat ordenar.txt | sort -g)
+	ORDENADA=$(cat ordenar.txt | sort -g)
 
-#---------- MAS LARGA Y MAS CORTA --------
-N=$((1))
+	#---------- MAS LARGA Y MAS CORTA --------
+	N=$((1))
 
-newIFS=$IFS
-IFS=$'\n'
+	newIFS=$IFS
+	IFS=$'\n'
 
-for i in $ORDENADA
-do
-	if [ $N -eq 1 ]
-	then
-		N=$((N+1))
-		echo -e "La mas corta: $i \n"
-	elif [ $N -eq $LINEAS ]
-	then
-		echo -e "La mas larga: $i \n"
-	else
-		N=$((N+1))
-		
-	fi
-done
+	for i in $ORDENADA
+	do
+		if [ $N -eq 1 ]
+		then
+			N=$((N+1))
+			echo -e "La mas corta: $i \n"
+		elif [ $N -eq $LINEAS ]
+		then
+			echo -e "La mas larga: $i \n"
+		else
+			N=$((N+1))
+			
+		fi
+	done
 
-IFS=$newIFS
-unset newIFS
+	IFS=$newIFS
+	unset newIFS
 
-#------------ PROMEDIO ------------------
+	#------------ PROMEDIO ------------------
 
-PROMEDIO=$(($SUMA_LONGITUDES/$COUNT_SENTENCES))
+	PROMEDIO=$(($SUMA_LONGITUDES/$COUNT_SENTENCES))
 
-echo "El promedio de longitudes es igual a $PROMEDIO"
+	echo "El promedio de longitudes es igual a $PROMEDIO"
 
-rm ordenar.txt
+	rm ordenar.txt
+
+}
