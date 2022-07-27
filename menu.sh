@@ -20,46 +20,60 @@ IFS=$'\n'
 select opcion in "SALIR" $OP2 $OP3 $OP4 $OP5 $OP6 $OP7 $OP8 $OP9 $OP10
 do
        	[ -e $opcion ] && echo "Elegir opcion valida!" && continue
-	[ $REPLY == 1 ] && echo "Hasta luego" && break
-	echo "Opcion elegida: $opcion"
-	case $REPLY in
-		2)
-			echo "statsWORDS"
-			exit 0
-			;;
-		3)
-			echo "statsUsageWords"
-			exit 0
-			;;
-		4)
-			echo "finNames"
-			exit 0
-			;;
-		5)
-			echo "statsSentences"
-			exit 0
-			;;
-		6)
-			echo "blankLinesCounter"
-			exit 0
-			;;
-		7)
-			echo "caseConverter"
-			exit 0
-			;;
-		8)
-			echo "substringReplace"
-			exit 0
-			;;
-		9)
-			echo "blockSelection"
-			exit 0
-			;;
-		10)
-			echo "palindromeDetection"
-			exit 0
-			;;
-	esac
+	if [ $REPLY == 1 ]
+	then
+		echo "Hasta luego"
+		break
+	else
+		echo "Opcion elegida: $opcion"
+		case $REPLY in
+			2)
+				echo "statsWORDS"
+				continue
+				exit 0
+				;;
+			3)
+				echo "statsUsageWords"
+				continue
+				exit 0
+				;;
+			4)
+				echo "finNames"
+				continue
+				exit 0
+				;;
+			5)
+				echo "statsSentences"
+				continue
+				exit 0
+				;;
+			6)
+				echo "blankLinesCounter"
+				continue
+				exit 0
+				;;
+			7)
+				echo "caseConverter"
+				continue
+				exit 0
+				;;
+			8)
+				echo "substringReplace"
+				continue
+				exit 0
+				;;
+			9)
+				echo "blockSelection"
+				continue
+				exit 0
+				;;
+			10)
+				echo "palindromeDetection"
+				continue
+				exit 0
+				;;
+		esac
+	fi
 done
 
 IFS=$newIFS
