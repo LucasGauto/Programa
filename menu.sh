@@ -7,6 +7,7 @@ source findNames.sh
 source statsSentences.sh
 source blankLinesCounter.sh
 source caseConverter.sh
+source blockSelection.sh
 
 TEXTO=$1
 
@@ -84,6 +85,7 @@ do
 				;;
 			9)
 				echo "blockSelection"
+				blockSelection $TEXTO
 				continue
 				exit 0
 				;;
