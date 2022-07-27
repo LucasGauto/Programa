@@ -3,6 +3,7 @@
 source funcionPrueba.sh
 source statsWords.sh
 source statsUsageWords.sh
+source findNames.sh
 
 TEXTO=$1
 
@@ -50,7 +51,8 @@ do
 				exit 0
 				;;
 			4)
-				echo "finNames"
+				echo "findNames"
+				findNames $TEXTO
 				continue
 				exit 0
 				;;

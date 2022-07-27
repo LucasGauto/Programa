@@ -1,14 +1,16 @@
 #!/bin/bash
 
-TEXTO=$1
+function findNames {
 
-echo -e "Lista de nombres: \n"
+	TEXTO=$1
 
-
-for i in $(cat $TEXTO)
-do
-	I=$i
-	echo $i | grep ^[ABCDEFGHIJKLMNOPQRSTUVWXYZ]
-done
+	echo -e "Lista de nombres: \n"
 
 
+	for i in $(cat $TEXTO)
+	do
+		I=$i
+		echo $i | grep ^[ABCDEFGHIJKLMNOPQRSTUVWXYZ]
+	done
+
+}
