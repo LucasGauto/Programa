@@ -22,6 +22,44 @@ do
        	[ -e $opcion ] && echo "Elegir opcion valida!" && continue
 	[ $REPLY == 1 ] && echo "Hasta luego" && break
 	echo "Opcion elegida: $opcion"
+	case $REPLY in
+		2)
+			echo "statsWORDS"
+			exit 0
+			;;
+		3)
+			echo "statsUsageWords"
+			exit 0
+			;;
+		4)
+			echo "finNames"
+			exit 0
+			;;
+		5)
+			echo "statsSentences"
+			exit 0
+			;;
+		6)
+			echo "blankLinesCounter"
+			exit 0
+			;;
+		7)
+			echo "caseConverter"
+			exit 0
+			;;
+		8)
+			echo "substringReplace"
+			exit 0
+			;;
+		9)
+			echo "blockSelection"
+			exit 0
+			;;
+		10)
+			echo "palindromeDetection"
+			exit 0
+			;;
+	esac
 done
 
 IFS=$newIFS
