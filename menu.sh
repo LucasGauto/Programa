@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source funcionPrueba.sh
+source statsWords.sh
 
 TEXTO=$1
 
@@ -24,16 +25,20 @@ IFS=$'\n'
 select opcion in "SALIR" $OP2 $OP3 $OP4 $OP5 $OP6 $OP7 $OP8 $OP9 $OP10
 do
        	[ -e $opcion ] && echo "Elegir opcion valida!" && continue
+	
 	if [ $REPLY == 1 ]
 	then
 		echo "Hasta luego"
 		break
 	else
+		IFS=$newIFS
+		unset newIFS
+
 		echo "Opcion elegida: $opcion"
 		case $REPLY in
 			2)
 				echo "statsWORDS"
-				funcion $TEXTO
+				statsWords $TEXTO
 				continue
 				exit 0
 				;;
@@ -81,7 +86,7 @@ do
 	fi
 done
 
-IFS=$newIFS
-unset newIFS
+#IFS=$newIFS
+#unset newIFS
 
 exit 0
