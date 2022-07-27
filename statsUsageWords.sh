@@ -1,37 +1,41 @@
 #!/bin/bash
 
-#filtrar por las que tienen al menos 4 letras
+function statsUsageWords {
 
-contador=0
+	TEXTO=$1
 
-for palabra in $(cat $1 | sort | uniq)
-do
-	if [ $contador -eq 0 ]
-	then
-	#filtro
-		if [ ${#palabra} -ge 4 ]
+	contador=0
+
+	for palabra in $(cat $TEXTO | sort | uniq)
+	do
+		if [ $contador -eq 0 ]
 		then
-			for palabra2 in $(cat $1)
-			do
-				if [[ $palabra = $palabra2 ]]
-				then
-					contador=$((contador+1))
-				else
-					continue
-				fi
-			
-				#echo "$contador - $palabra"			
-			done
-			echo "$contador apariciones: $palabra" >> statsUsageWords.txt
+		#filtro
+			if [ ${#palabra} -ge 4 ]
+			then
+				for palabra2 in $(cat $TEXTO)
+				do
+					if [[ $palabra = $palabra2 ]]
+					then
+						contador=$((contador+1))
+					else
+						continue
+					fi
+				
+					#echo "$contador - $palabra"			
+				done
+				echo "$contador apariciones: $palabra" >> statsUsageWords.txt
+			fi
+		else
+			contador=0
 		fi
-	else
-		contador=0
-	fi
-done
+	done
 
 
-echo "Top Ten de palabras con mas apariciones: "
+	echo "Top Ten de palabras con mas apariciones: "
 
-cat statsUsageWords.txt | sort | uniq | sort -r | head --lines=10
+	cat statsUsageWords.txt | sort | uniq | sort -r | head --lines=10
 
-rm statsUsageWords.txt
+	rm statsUsageWords.txt
+
+}

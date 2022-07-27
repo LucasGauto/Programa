@@ -2,6 +2,7 @@
 
 source funcionPrueba.sh
 source statsWords.sh
+source statsUsageWords.sh
 
 TEXTO=$1
 
@@ -44,6 +45,7 @@ do
 				;;
 			3)
 				echo "statsUsageWords"
+				statsUsageWords $TEXTO
 				continue
 				exit 0
 				;;
