@@ -6,6 +6,7 @@ source statsUsageWords.sh
 source findNames.sh
 source statsSentences.sh
 source blankLinesCounter.sh
+source caseConverter.sh
 
 TEXTO=$1
 
@@ -72,6 +73,7 @@ do
 				;;
 			7)
 				echo "caseConverter"
+				caseConverter $TEXTO
 				continue
 				exit 0
 				;;
