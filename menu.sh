@@ -4,6 +4,7 @@ source funcionPrueba.sh
 source statsWords.sh
 source statsUsageWords.sh
 source findNames.sh
+source blankLinesCounter.sh
 
 TEXTO=$1
 
@@ -63,6 +64,7 @@ do
 				;;
 			6)
 				echo "blankLinesCounter"
+				blankLinesCounter $TEXTO
 				continue
 				exit 0
 				;;

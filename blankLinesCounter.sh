@@ -1,23 +1,27 @@
 #!/bin/bash
 
-TEXTO=$1
+function blankLinesCounter {
 
-newIFS=$IFS
+	TEXTO=$1
 
-IFS=$'\n'
+	newIFS=$IFS
 
-COUNT=$((0))
+	IFS=$'\n'
 
-for i in $(cat $TEXTO)
-do
-	if [ $i = " " ]
-	then
-		COUNT=$((COUNT+1))
-	fi
-done
+	COUNT=$((0))
 
-echo "Hay un total de $COUNT lineas en blanco"
+	for i in $(cat $TEXTO)
+	do
+		if [ $i = " " ]
+		then
+			COUNT=$((COUNT+1))
+		fi
+	done
 
-IFS=$newIFS
+	echo "Hay un total de $COUNT lineas en blanco"
 
-unset newIFS
+	IFS=$newIFS
+
+	unset newIFS
+
+}
