@@ -1,7 +1,9 @@
 #!/bin/bash
 
 TEXTO=$1
-TIPO=$2
+#TIPO=$2
+
+read -p "Buscas una oracion (O) o un parrafo (P)?: " TIPO
 
 #compruebo si el archivo existe
 if [ -e $TEXTO ]
@@ -17,7 +19,10 @@ then
 		
 		echo "Usted esta buscando una oracion"
 		
-		POSICION=$3
+		#POSICION=$3
+		
+		read -p "En que posicion quiere buscar?: " POSICION
+
 		n=$((1))
 
 		for oracion in $CAT
@@ -25,7 +30,7 @@ then
 			#echo $oracion
 			if [ $n -eq $POSICION ]
 			then
-				echo "Oracion $POSICION: $oracion"
+				echo "Oracion #$POSICION: $oracion"
 				n=$((n+1))
 			else
 				n=$((n+1))
@@ -45,7 +50,10 @@ then
 		
 		echo "Usted esta buscando un parrafo"
 		
-		POSICION=$3
+		#POSICION=$3
+	
+		read -p "En que posicion quiere buscar?: " POSICION
+
 		n=$((1))
 			
 		for parrafo in $CAT
