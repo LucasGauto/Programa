@@ -1,15 +1,19 @@
 #!/bin/bash
 
-TEXTO=$1
+function caseConverter {
 
-#COMPRUEBO SI EL ARCHIVO EXISTE
+	TEXTO=$1
 
-if [ -e $TEXTO ]
-then
-	tr '[:upper:][:lower:]' '[:lower:][:upper:]' < $TEXTO > output.txt
-else
-	echo "Archivo inexistente"
-fi
+	#COMPRUEBO SI EL ARCHIVO EXISTE
 
-cat output.txt
-rm output.txt
+	if [ -e $TEXTO ]
+	then
+		tr '[:upper:][:lower:]' '[:lower:][:upper:]' < $TEXTO > output.txt
+	else
+		echo "Archivo inexistente"
+	fi
+
+	cat output.txt
+	rm output.txt
+
+}

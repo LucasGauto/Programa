@@ -1,5 +1,6 @@
 #!/bin/bash
 
+function statsWords {
 TEXTO=$1
 LONGITUDES=$((0))
 CANTIDAD=$((0))
@@ -49,3 +50,4 @@ echo "Cantidad total de palabras: $CANTIDAD"
 echo "El promedio de longitudes es de $PROMEDIO"
 
 rm ordenar.txt
+}
