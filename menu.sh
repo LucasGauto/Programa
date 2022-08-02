@@ -8,6 +8,7 @@ source statsSentences.sh
 source blankLinesCounter.sh
 source caseConverter.sh
 source blockSelection.sh
+source palindromeDetection.sh
 
 TEXTO=$1
 
@@ -114,7 +115,8 @@ do
 				;;
 			10)
 				echo "palindromeDetection"
-				
+				palindromos $TEXTO
+
 				continue
 				exit 0
 				;;

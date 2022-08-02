@@ -6,8 +6,6 @@ function palindromos {
 
 	TEXTO=$1
 
-	echo "Palabras palindromos de $TEXTO"
-
 
 	CAT=$(cat $TEXTO | tr [:upper:] [:lower:] | sed 'y/üéáíóú/ueaiou/')
 
@@ -57,5 +55,3 @@ function palindromos {
 	done
 
 }
-
-palindromos $1
