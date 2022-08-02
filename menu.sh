@@ -7,6 +7,7 @@ source findNames.sh
 source statsSentences.sh
 source blankLinesCounter.sh
 source caseConverter.sh
+source substringReplace.sh
 source blockSelection.sh
 source palindromeDetection.sh
 
@@ -102,7 +103,8 @@ do
 				;;
 			8)
 				echo "substringReplace"
-				
+				substringReplace $TEXTO
+
 				continue
 				exit 0
 				;;

@@ -10,5 +10,3 @@ function substringReplace {
 
 	echo $CAT
 }
-
-substringReplace $1
