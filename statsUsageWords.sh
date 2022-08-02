@@ -10,7 +10,7 @@ function statsUsageWords {
 	do
 		if [ $contador -eq 0 ]
 		then
-		#filtro
+		
 			if [ ${#palabra} -ge 4 ]
 			then
 				for palabra2 in $(cat $TEXTO)

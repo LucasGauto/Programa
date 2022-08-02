@@ -11,7 +11,14 @@ source substringReplace.sh
 source blockSelection.sh
 source palindromeDetection.sh
 
-TEXTO=$1
+echo "Textos disponibles: "
+
+ls | grep .txt$
+
+echo -e "\n"
+read -p "Ingrese el texto sobre el que desea trabajar: " TEXTO
+
+
 
 OP2='Indicador estadistico de longitud de palabras'
 OP3="Indicador estadistico de uso de palabras. 10 mas usadas"
@@ -43,13 +50,6 @@ do
 	       	unset newIFS
        	fi
        
-	#hasta aca todo bien. Ahora...
-
-       #if [ -e $opcion ]
-       #then
-#		echo "Elegir opcion valida!"
-#		continue
-#	else
 		
 	if [ $REPLY = 1 ]
 	then
@@ -96,7 +96,7 @@ do
 				;;
 			7)
 				echo "caseConverter"
-				caseConverter $1
+				caseConverter $TEXTO
 				
 				continue
 				exit 0

@@ -11,7 +11,6 @@ function palindromos {
 
 	for i in $CAT
 	do
-		#echo ${i:0:2}
 
 		mitad=$((${#i}/2))
 		mitadMas1=$((mitad+1))
@@ -25,11 +24,6 @@ function palindromos {
 		then
 			SegundaMitadPar=${i:$mitad:$longitud}
 
-			#echo "Palabra: $i"
-			#echo "Primera Mitad: $PrimeraMitad"
-			#echo "Segunda Mitad: $SegundaMitadPar"
-			#echo -e "PrimeraAlReve: $PrimeraAlReves \n"
-
 			if [ $SegundaMitadPar = $PrimeraAlReves ]
 			then
 				echo $i
@@ -38,11 +32,6 @@ function palindromos {
 		elif [ $(($longitud%2)) -gt 0 ]
 		then
 			SegundaMitadImpar=${i:$mitadMas1:$longitud}
-			
-			#echo "Palabra: $i"
-			#echo "Primera Mitad: $PrimeraMitad"
-			#echo "Segunda Mitad: $SegundaMitadImpar"
-			#echo -e "PrimeraAlR: $PrimeraAlReves \n"
 
 			if [ $SegundaMitadImpar = $PrimeraAlReves ]
 			then

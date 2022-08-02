@@ -7,7 +7,7 @@ function blockSelection {
 
 	read -p "Buscas una oracion (O) o un parrafo (P)?: " TIPO
 
-	#compruebo si el archivo existe
+	
 	if [ -e $TEXTO ]
 	then
 		#si es oracion...
