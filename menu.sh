@@ -60,35 +60,21 @@ do
 			2)
 				echo "statsWORDS"
 				statsWords $TEXTO
-				
-				#IFS=$newIFS
-				#unset newIFS
-
+			
 				continue
 				exit 0
 				;;
 			3)
-				#IFS=$newIFS
-				#unset newIFS
-
 				echo "statsUsageWords"
 				statsUsageWords $TEXTO
-				
-				#newIFS=$IFS
-				#IFS=$'\n'
-
+			
 				continue
 				exit 0
 				;;
 			4)
-				#IFS=$newIFS
-				#unset newIFS
 
 				echo "findNames"
 				findNames $TEXTO
-				
-				#newIFS=$IFS
-				#IFS=$'\n'
 				
 				continue
 				exit 0
@@ -102,28 +88,33 @@ do
 			6)
 				echo "blankLinesCounter"
 				blankLinesCounter $TEXTO
+				
 				continue
 				exit 0
 				;;
 			7)
 				echo "caseConverter"
 				caseConverter $1
+				
 				continue
 				exit 0
 				;;
 			8)
 				echo "substringReplace"
+				
 				continue
 				exit 0
 				;;
 			9)
 				echo "blockSelection"
 				blockSelection $TEXTO
+				
 				continue
 				exit 0
 				;;
 			10)
 				echo "palindromeDetection"
+				
 				continue
 				exit 0
 				;;
@@ -132,8 +123,7 @@ do
 				continue
 
 		esac
-		fi
-#       fi
+	fi
 done
 
 exit 0
