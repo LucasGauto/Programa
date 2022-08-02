@@ -28,77 +28,107 @@ echo "Que desea hacer?"
 newIFS=$IFS
 IFS=$'\n'
 
+n=$((1))
+
 select opcion in "SALIR" $OP2 $OP3 $OP4 $OP5 $OP6 $OP7 $OP8 $OP9 $OP10
 do
-       	[ -e $opcion ] && echo "Elegir opcion valida!" && continue
-	
-	if [ $REPLY == 1 ]
+	n=$((n+1))
+	if [ $n -eq 1 ]
 	then
-		echo "Hasta luego"
-		break
-	else
 		IFS=$newIFS
-		unset newIFS
+	       	unset newIFS
+       	fi
+       
+       if [ -e $opcion ]
+       then
+		echo "Elegir opcion valida!"
+		continue
+	else
+		
+		if [ $REPLY = 1 ]
+		then
+			echo "Hasta luego"
+			break
+		else
+			echo "Opcion elegida: $opcion"
+			
+			case $REPLY in
+				2)
+					echo "statsWORDS"
+					statsWords $TEXTO
+					
+					#IFS=$newIFS
+					#unset newIFS
 
-		echo "Opcion elegida: $opcion"
-		case $REPLY in
-			2)
-				echo "statsWORDS"
-				statsWords $TEXTO
-				continue
-				exit 0
-				;;
-			3)
-				echo "statsUsageWords"
-				statsUsageWords $TEXTO
-				continue
-				exit 0
-				;;
-			4)
-				echo "findNames"
-				findNames $TEXTO
-				continue
-				exit 0
-				;;
-			5)
-				echo "statsSentences"
-				statsSentences $TEXTO
-				continue
-				exit 0
-				;;
-			6)
-				echo "blankLinesCounter"
-				blankLinesCounter $TEXTO
-				continue
-				exit 0
-				;;
-			7)
-				echo "caseConverter"
-				caseConverter $TEXTO
-				continue
-				exit 0
-				;;
-			8)
-				echo "substringReplace"
-				continue
-				exit 0
-				;;
-			9)
-				echo "blockSelection"
-				blockSelection $TEXTO
-				continue
-				exit 0
-				;;
-			10)
-				echo "palindromeDetection"
-				continue
-				exit 0
-				;;
-		esac
-	fi
+					continue
+					exit 0
+					;;
+				3)
+					#IFS=$newIFS
+					#unset newIFS
+
+					echo "statsUsageWords"
+					statsUsageWords $TEXTO
+					
+					#newIFS=$IFS
+					#IFS=$'\n'
+
+					continue
+					exit 0
+					;;
+				4)
+					IFS=$newIFS
+					unset newIFS
+
+					echo "findNames"
+					findNames $TEXTO
+					
+					#newIFS=$IFS
+					#IFS=$'\n'
+					
+					continue
+					exit 0
+					;;
+				5)
+					echo "statsSentences"
+					statsSentences $TEXTO
+					continue
+					exit 0
+					;;
+				6)
+					echo "blankLinesCounter"
+					blankLinesCounter $TEXTO
+					continue
+					exit 0
+					;;
+				7)
+					echo "caseConverter"
+					caseConverter $1
+					continue
+					exit 0
+					;;
+				8)
+					echo "substringReplace"
+					continue
+					exit 0
+					;;
+				9)
+					echo "blockSelection"
+					blockSelection $TEXTO
+					continue
+					exit 0
+					;;
+				10)
+					echo "palindromeDetection"
+					continue
+					exit 0
+					;;
+			esac
+		fi
+       fi
 done
 
-#IFS=$newIFS
-#unset newIFS
+IFS=$newIFS
+unset newIFS
 
 exit 0

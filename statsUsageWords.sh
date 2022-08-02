@@ -2,9 +2,9 @@
 
 function statsUsageWords {
 
-	TEXTO=$1
+	local TEXTO=$1
 
-	contador=0
+	local contador=0
 
 	for palabra in $(cat $TEXTO | sort | uniq)
 	do
@@ -17,7 +17,7 @@ function statsUsageWords {
 				do
 					if [[ $palabra = $palabra2 ]]
 					then
-						contador=$((contador+1))
+						local contador=$((contador+1))
 					else
 						continue
 					fi
@@ -27,7 +27,7 @@ function statsUsageWords {
 				echo "$contador apariciones: $palabra" >> statsUsageWords.txt
 			fi
 		else
-			contador=0
+			local contador=0
 		fi
 	done
 

@@ -6,11 +6,10 @@ function findNames {
 
 	echo -e "Lista de nombres: \n"
 
+	CAT=$(cat $TEXTO)
 
-	for i in $(cat $TEXTO)
+	for i in $CAT;
 	do
-		I=$i
 		echo $i | grep ^[ABCDEFGHIJKLMNOPQRSTUVWXYZ]
 	done
-
 }
