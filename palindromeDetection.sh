@@ -7,7 +7,7 @@ function palindromos {
 	TEXTO=$1
 
 
-	CAT=$(cat $TEXTO | tr [:upper:] [:lower:] | sed 'y/üéáíóú/ueaiou/')
+	CAT=$(cat $TEXTO | tr [:upper:] [:lower:] | sed s/üéáíóú/ueaiou/g)
 
 	for i in $CAT
 	do

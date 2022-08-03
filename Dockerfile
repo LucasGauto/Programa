@@ -13,5 +13,6 @@ ADD ["caseConverter.sh", "/TP_final"]
 ADD ["substringReplace.sh", "/TP_final"]
 ADD ["blockSelection.sh", "/TP_final"]
 ADD ["palindromeDetection.sh", "/TP_final"]
+ADD ["revertir.sh", "/TP_final"]
 
 ENTRYPOINT ["bash", "menu.sh"]
