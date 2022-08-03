@@ -3,6 +3,7 @@ FROM ubuntu:22.10
 WORKDIR TP_final
 
 ADD ["texto.txt", "/TP_final"]
+ADD ["texto2.txt", "/TP_final"]
 ADD ["menu.sh", "/TP_final"]
 ADD ["statsWords.sh", "/TP_final"]
 ADD ["statsUsageWords.sh", "/TP_final"]

@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source funcionPrueba.sh
 source statsWords.sh
 source statsUsageWords.sh
 source findNames.sh
