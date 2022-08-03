@@ -19,7 +19,6 @@ echo -e "\n"
 read -p "Ingrese el texto sobre el que desea trabajar: " TEXTO
 
 
-
 OP2='Indicador estadistico de longitud de palabras'
 OP3="Indicador estadistico de uso de palabras. 10 mas usadas"
 OP4="Identificacion de nombres propios"
